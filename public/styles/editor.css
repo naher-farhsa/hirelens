@@ -1,0 +1,298 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Remove outer scrollbar */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease; /* ✅ smooth theme switch */
+}
+
+.page-loading {
+  animation: slide-up 0.5s ease-out; /* ✅ faster + smooth */
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px); /* smaller, smoother motion */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 50px;
+  background-color: rgba(22, 27, 34, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  color: #f0f6fc;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-title:hover {
+  transform: scale(1.1);
+  color: #58a6ff;
+}
+
+.project-title .icon {
+  font-size: 2rem;
+}
+
+.toggle-theme-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  background-color: #30363d;
+  color: #f0f6fc;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* --- Layout --- */
+.main-layout {
+  display: flex;
+  height: calc(100vh - 50px);
+  gap: 1rem;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.panel {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.left-panel {
+  width: 30%;
+  min-width: 300px;
+}
+.center-panel {
+  flex: 1;
+}
+
+h2 {
+  color: #f0f6fc;
+  margin-bottom: 10px;
+  transition: color 0.4s ease;
+}
+
+/* --- JD Form --- */
+#jdForm textarea {
+  width: 95%;
+  margin: 10px 0 15px 0;
+  padding: 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-family: Helvetica, Arial, sans-serif;
+  resize: vertical;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+#jdForm textarea:focus {
+  border-color: #58a6ff;
+  outline: none;
+}
+
+#jdForm button {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 10px 20px;
+  background-color: #238636;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#jdForm button:hover {
+  background-color: #2ea043;
+}
+
+/* --- Keyword Capsules --- */
+#keywordsContainer {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#keywordsContainer h3 {
+  width: 100%;
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f0f6fc;
+  transition: color 0.4s ease;
+}
+
+.keyword-pill {
+  background: #0d6efd;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.keyword-pill:hover {
+  transform: scale(1.05);
+  background: #0b5ed7;
+  cursor: pointer;
+}
+
+/* --- Resume Editor --- */
+.resume-preview {
+  background-color: #0d1117;
+  border: 1px dashed #30363d;
+  border-radius: 8px;
+  height: 400px;
+  overflow-y: auto;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.ql-editor {
+  min-height: 350px;
+  color: #c9d1d9;
+  background-color: #0d1117;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.ql-toolbar {
+  background-color: #161b22;
+  border: 1px solid #3d3034;
+  border-radius: 8px 8px 0 0;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.ql-container {
+  border: 1px solid #30363d;
+  border-radius: 0 0 8px 8px;
+  transition: border-color 0.4s ease;
+}
+
+/* --- File Upload and Save --- */
+#btn-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-save,
+.btn-upload,
+input,
+textarea,
+#jdForm .btn-search {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color:#007bff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 1rem 0rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #0056b3;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background-color: #007bff;
+  margin: 1rem 0rem;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+}
+
+/* --- Light Mode --- */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #c3d5ef;
+}
+
+body.light-mode .panel {
+  background-color: #f7e8e8;
+  border: 1px solid #d0d7de;
+  color: #0d1117;
+}
+body.light-mode #jdForm textarea {
+  background-color: #ffffff;
+  color: #0d1117;
+}
+
+body.light-mode .resume-preview {
+  background-color: #f8f9fa;
+  border-color: #d0d7de;
+}
+
+body.light-mode h2,
+body.light-mode #keywordsContainer h3 {
+  color: #0d1117;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  .left-panel,
+  .center-panel {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}

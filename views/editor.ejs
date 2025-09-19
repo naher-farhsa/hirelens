@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Editor</title>
+    <link rel="stylesheet" href="/styles/editor.css" />
+    <script src="https://cdn.cloud.pspdfkit.com/pspdfkit-web@1.7.0/nutrient-viewer.js"></script>
+  </head>
+  <body class="page-loading">
+    <header class="header glass-effect">
+      <h1 class="project-title"><span class="icon">👓</span> HireLens</h1>
+      <button id="themeToggle" class="toggle-theme-btn">🌙</button>
+    </header>
+
+    <div class="main-layout">
+      <!-- JD Section -->
+      <div class="panel left-panel">
+        <h2>Job Description</h2>
+        <form id="jdForm">
+          <textarea
+            id="jobDescription"
+            name="jobDescription"
+            rows="5"
+            placeholder="Paste the job description here..."
+          ></textarea>
+          <button type="submit" class="btn btn-search">Search</button>
+        </form>
+        <div id="keywordsContainer" class="keywords-container"></div>
+      </div>
+
+      <!-- Resume Section -->
+      <div class="panel center-panel">
+        <h2>Resume Viewer</h2>
+        <div id="btn-container">
+        <input
+          type="file"
+          id="resume-upload"
+          accept=".pdf,.docx,.txt"
+          class="btn btn-upload"
+        />
+        <!-- Add this inside the center-panel, below the viewer div -->
+        <button
+          class="btn btn-save"
+        >
+          Save
+        </button>
+        </div>
+        <div id="viewer" class="resume-preview"></div>
+      </div>
+    </div>
+    <script src="/scripts/editor.js"></script>
+    <script>
+      // ✅ Light/Dark theme toggle
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        document.getElementById("themeToggle").textContent =
+          document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+      });
+    </script>
+  </body>
+</html>

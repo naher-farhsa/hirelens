@@ -13,6 +13,12 @@ const userSchema=new mongoose.Schema({
     }
 })
 
-const userModel= mongoose.model("Users",userSchema)
+userSchema.pre("remove", async function (next) {
+  const Resumes = require("./resume.model");
+  await Resumes.deleteMany({ user: this._id });
+  next();
+});
+
+const userModel= mongoose.model("User",userSchema)
 
 module.exports=userModel
