@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Editor</title>
-    <link rel="stylesheet" href="/styles/editor.css" />
-    <script src="https://cdn.cloud.pspdfkit.com/pspdfkit-web@1.7.0/nutrient-viewer.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/resumes.css" />
   </head>
-  <body class="page-loading">
+  <body>
     <header class="header">
       <h1 class="project-title">
         <span class="icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            width="24"
-            height="24"
+            width="25"
+            height="25"
             fill="currentColor"
           >
             <path
@@ -43,41 +48,11 @@
       </button>
     </header>
 
-    <div class="main-layout">
-      <!-- JD Section -->
-      <div class="panel left-panel">
-        <h2>Job Description</h2>
-        <form id="jdForm">
-          <textarea
-            id="jobDescription"
-            name="jobDescription"
-            rows="5"
-            placeholder="Paste the job description here..."
-          ></textarea>
-          <button type="submit" class="btn btn-search">Search</button>
-        </form>
-        <div id="keywordsContainer" class="keywords-container"></div>
-      </div>
+    <main class="resumes-container">
+      <h2>Your Resumes</h2>
+      <div id="resumes-list" class="resumes-list"></div>
+    </main>
 
-      <!-- Resume Section -->
-      <div class="panel center-panel">
-        <h2>Resume Viewer</h2>
-        <div id="btn-container">
-          <input
-            type="file"
-            id="resume-upload"
-            accept=".pdf,.docx,.txt"
-            class="btn btn-upload"
-          />
-          <!-- Add this inside the center-panel, below the viewer div -->
-          <div id="btn-group">
-            <button class="btn btn-save" id="save-resume">Save</button>
-            <button class="btn btn-view" onclick="viewResumes()">View</button>
-          </div>
-        </div>
-        <div id="viewer" class="resume-preview"></div>
-      </div>
-    </div>
-    <script src="/scripts/editor.js"></script>
+    <script src="/scripts/resumes.js"></script>
   </body>
 </html>

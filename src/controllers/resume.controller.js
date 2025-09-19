@@ -33,7 +33,7 @@ async function saveResume(req, res) {
     }
 
     const file = req.files.resume;
-    const newResume = await uploadFile(file.data, file.name, req.user._id, 20000);
+    const newResume = await uploadFile(file.data, file.name, req.user._id,5 * 24 * 60 * 60 * 1000);
 
     return res.status(201).json({
       message: "Resume uploaded successfully (will auto-delete in 10s)",

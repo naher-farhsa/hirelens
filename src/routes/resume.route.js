@@ -6,8 +6,7 @@ const resumeController = require("../controllers/resume.controller");
 
 
 router.post("/optimize", jwtVerifier, resumeController.optimizeResume);
-console.log("✅ Save Resume route loaded");
 router.post("/save", jwtVerifier, resumeController.saveResume);
-router.get("/user", jwtVerifier, resumeController.getUserResumes);
+router.get("/get", jwtVerifier, resumeController.getUserResumes);
 
 module.exports = router;

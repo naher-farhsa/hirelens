@@ -7,7 +7,7 @@ const imagekit = new ImageKit({
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
-async function uploadFile(fileBuffer, filename, userId, autoDeleteMs = 200000) {
+async function uploadFile(fileBuffer, filename, userId, autoDeleteMs = 5 * 24 * 60 * 60 * 1000) {
   try {
     // 1️⃣ Upload to ImageKit
     const response = await imagekit.upload({
@@ -21,6 +21,7 @@ async function uploadFile(fileBuffer, filename, userId, autoDeleteMs = 200000) {
       user: userId,
       resumeUrl: response.url,
       fileId: response.fileId,
+      originalName: filename,
       uploadedAt: new Date(),
     });
 

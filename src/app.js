@@ -39,6 +39,10 @@ app.get("/editor", jwtVerifier, (req, res) => {
   res.render("editor");
 });
 
+app.get("/resumes", jwtVerifier, (req, res) => {
+  res.render("resumes"); 
+});
+
 // Catch-all route for undefined routes
 app.use((req, res) => {
   res.status(404).send("Page not found");

@@ -1,4 +1,3 @@
-// models/resume.model.js
 const mongoose = require("mongoose");
 
 const resumeSchema = new mongoose.Schema({
@@ -9,6 +8,14 @@ const resumeSchema = new mongoose.Schema({
   },
   resumeUrl: {
     type: String,
+    required: true,
+  },
+  fileId: {
+    type: String, // from ImageKit
+    required: true,
+  },
+  originalName: {
+    type: String, // the actual file name (e.g., resume.pdf)
     required: true,
   },
   uploadedAt: {

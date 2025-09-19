@@ -32,7 +32,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 50px;
+  height: 60px;
   background-color: rgba(22, 27, 34, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(48, 54, 61, 0.5);
@@ -43,7 +43,8 @@ body {
 .project-title {
   font-size: 1.8rem;
   color: #f0f6fc;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   cursor: pointer;
@@ -52,16 +53,26 @@ body {
 
 .project-title:hover {
   transform: scale(1.1);
-  color: #58a6ff;
+  color: #0d51a0;
 }
 
-.project-title .icon {
-  font-size: 2rem;
+.project-title .icon svg {
+  vertical-align: middle;   
+  margin: 0.5rem 0;              
+  color: #e1e0e9; 
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.project-title:hover .icon svg,
+.project-title .icon svg:hover {
+  transform: scale(1.1);
+  color: #0d51a0;  
+}
+
+/* --- Theme Toggle Button --- */
 .toggle-theme-btn {
   position: absolute;
-  right: 15px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   padding: 6px 12px;
@@ -71,6 +82,24 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Theme toggle button icons */
+.toggle-theme-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: #f0f6fc;   /* visible in dark mode */
+  stroke: none;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+body.light-mode .toggle-theme-btn svg {
+  fill: #24292f;   /* visible in light mode */
+}
+
+.toggle-theme-btn:hover svg {
+  transform: scale(1.1) rotate(15deg);
 }
 
 /* --- Layout --- */
@@ -110,7 +139,7 @@ h2 {
   width: 95%;
   margin: 10px 0 15px 0;
   padding: 12px;
-  border: 1px solid #30363d;
+  border: 1px dashed #30363d;
   border-radius: 6px;
   background-color: #0d1117;
   color: #f0f6fc;
@@ -120,15 +149,15 @@ h2 {
 }
 
 #jdForm textarea:focus {
-  border-color: #58a6ff;
+  border-color: #5798e3;
   outline: none;
 }
 
 #jdForm button {
   display: inline-block;
   margin-top: 5px;
-  padding: 10px 20px;
-  background-color: #238636;
+  padding: 0.5rem 1rem;
+  background-color: #27a540;
   color: white;
   border: none;
   border-radius: 20px;
@@ -137,7 +166,7 @@ h2 {
 }
 
 #jdForm button:hover {
-  background-color: #2ea043;
+  background-color: #1c6b2a;
 }
 
 /* --- Keyword Capsules --- */
@@ -188,26 +217,6 @@ h2 {
   transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
-.ql-editor {
-  min-height: 350px;
-  color: #c9d1d9;
-  background-color: #0d1117;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-.ql-toolbar {
-  background-color: #161b22;
-  border: 1px solid #3d3034;
-  border-radius: 8px 8px 0 0;
-  transition: background-color 0.4s ease, border-color 0.4s ease;
-}
-
-.ql-container {
-  border: 1px solid #30363d;
-  border-radius: 0 0 8px 8px;
-  transition: border-color 0.4s ease;
-}
-
 /* --- File Upload and Save --- */
 #btn-container{
   display: flex;
@@ -215,7 +224,7 @@ h2 {
   align-items: center;
 }
 
-.btn-save,
+.btn-save,.btn-view,
 .btn-upload,
 input,
 textarea,
@@ -234,7 +243,7 @@ input[type="file"]::file-selector-button {
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
-  margin: 1rem 0rem;
+  margin: 0.5rem 0.2rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -243,10 +252,10 @@ input[type="file"]::file-selector-button:hover {
   background-color: #0056b3;
 }
 
-.btn-save {
-  padding: 10px 20px;
+.btn-save,.btn-view {
+  padding: 0.5rem 1rem;
   background-color: #007bff;
-  margin: 1rem 0rem;
+  margin: 0.5rem 0.2rem;
   color: white;
   border: none;
   border-radius: 40px;
@@ -254,7 +263,8 @@ input[type="file"]::file-selector-button:hover {
   transition: background 0.3s ease;
 }
 
-.btn-save:hover {
+.btn-save:hover,
+.btn-view:hover {
   background-color: #0056b3;
 }
 
@@ -264,11 +274,24 @@ body.light-mode {
   color: #c3d5ef;
 }
 
+body.light-mode .header {
+  background-color: #f7e8e8;
+  border: 1px solid #d0d7de;
+  color: #0d1117;
+}
+body.light-mode .project-title,body.light-mode .project-title .icon svg {
+  color: #24292f;
+}
+
+body.light-mode .project-title:hover,body.light-mode .project-title:hover .icon svg {
+  color: #0d51a0;
+}
 body.light-mode .panel {
   background-color: #f7e8e8;
   border: 1px solid #d0d7de;
   color: #0d1117;
 }
+
 body.light-mode #jdForm textarea {
   background-color: #ffffff;
   color: #0d1117;
