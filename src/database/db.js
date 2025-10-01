@@ -5,8 +5,8 @@ function connectDB(){
     .then(()=>{
         console.log("DB Connection Successfull");
     })
-    .catch(()=>{
-        console.log("DB Connection Unsuccessful");
+    .catch((err)=>{
+        console.log("DB Connection Unsuccessful",err);
         process.exit(1);  
     })
 }
