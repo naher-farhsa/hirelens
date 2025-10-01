@@ -6,7 +6,8 @@ function connectDB(){
         console.log("DB Connection Successfull");
     })
     .catch(()=>{
-        console.log("DB Connection Unsuccessful");  
+        console.log("DB Connection Unsuccessful");
+        process.exit(1);  
     })
 }
 
