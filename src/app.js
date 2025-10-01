@@ -26,7 +26,9 @@ app.set("view engine", "ejs");
 app.use("/api/auth", authRoutes);
 app.use("/api/resume", resumeRoutes);
 
-// Render EJS pages
+app.get("/", (req, res) => {
+  res.render("land");
+});
 app.get("/login", (req, res) => {
   res.render("login");
 });

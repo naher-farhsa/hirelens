@@ -50,7 +50,6 @@ input {
 input:focus {
   border-color: #3b82f6;
   background: #333;
-  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
   outline: none;
 }
 
@@ -68,5 +67,22 @@ button {
 
 button:hover {
   background: #1d4ed8;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+}
+
+.redirect-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: inherit; /* match surrounding text color */
+}
+
+.redirect-text a {
+  color: #4caf50; /* subtle green */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.redirect-text a:hover {
+  color: #3d8b40; /* slightly darker green on hover */
 }

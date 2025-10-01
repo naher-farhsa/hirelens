@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Editor</title>
-    <link rel="stylesheet" href="/styles/editor.css" />
-    <script src="https://cdn.cloud.pspdfkit.com/pspdfkit-web@1.7.0/nutrient-viewer.js"></script>
+    <meta charset="UTF-8" />
+    <title>HireLens</title>
+    <link rel="stylesheet" href="/styles/land.css" />
   </head>
   <body class="page-loading">
     <header class="header">
-      <button type="submit" class="btn btn-logout" id="logoutBtn">Logout</button>
       <h1 class="project-title">
         <span class="icon">
+          <!-- HireLens SVG -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -30,7 +30,6 @@
         class="toggle-theme-btn dark-btn"
         aria-label="Toggle Theme"
       >
-        <!-- default: dark mode active → show sun icon to switch -->
         <svg
           id="themeIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -46,41 +45,27 @@
       </button>
     </header>
 
-    <div class="main-layout">
-      <!-- JD Section -->
-      <div class="panel left-panel">
-        <h2>Job Description</h2>
-        <form id="jdForm">
-          <textarea
-            id="jobDescription"
-            name="jobDescription"
-            rows="5"
-            placeholder="Paste the job description here..."
-          ></textarea>
-          <button type="submit" class="btn btn-search">Search</button>
-        </form>
-        <div id="keywordsContainer" class="keywords-container"></div>
-      </div>
-
-      <!-- Resume Section -->
-      <div class="panel center-panel">
-        <h2>Resume Viewer</h2>
-        <div id="btn-container">
-          <input
-            type="file"
-            id="resume-upload"
-            accept=".pdf,.docx,.txt"
-            class="btn btn-upload"
-          />
-          <!-- Add this inside the center-panel, below the viewer div -->
-          <div id="btn-group">
-            <button class="btn btn-save" id="save-resume">Save</button>
-            <button class="btn btn-view" onclick="viewResumes()">View</button>
-          </div>
+    <!-- Landing Section -->
+    <div class="landing">
+      <div class="left">
+        <div class="typewriter-container">
+          <div class="typewriter"><span id="typewriterText"></span></div>
         </div>
-        <div id="viewer" class="resume-preview"></div>
+        <div class="content">
+          <p id="landingPara">
+            A resume optimizer tool that refines keywords and skills for you
+            based on Job Description with Gemini-2.0 Flash Support and Nutrient
+            Web Editor to edit and DAM store to vault it for later
+            use.
+          </p>
+          <button class="startBtn" onclick="location.href='/register'">
+            Get Started
+          </button>
+        </div>
       </div>
+      <div class="right"></div>
     </div>
-    <script src="/scripts/editor.js"></script>
+
+    <script src="/scripts/land.js"></script>
   </body>
 </html>

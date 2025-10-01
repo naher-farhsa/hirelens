@@ -1,4 +1,3 @@
-// --- Theme Toggle ---
  const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
 
@@ -20,42 +19,42 @@
       }
     });
 
-// --- Fetch and Display Resumes ---
-async function fetchResumes() {
-  try {
-    const response = await fetch("/api/resume/get", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    // ---Typewriter Effect---
+    const typewriterText = document.getElementById("typewriterText");
+    const features = [
+      "Refine Resumes ",
+      "JD Curated Keywords ",
+      "Edit it, Save it, Share it",
+      "Hassle free Storage "
+    ];
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch resumes");
+    let featureIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const currentText = features[featureIndex];
+      if (!deleting) {
+        typewriterText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        typewriterText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          featureIndex = (featureIndex + 1) % features.length;
+        }
+      }
+      setTimeout(typeEffect, deleting ? 50 : 100);
     }
 
-    const data = await response.json();
-    const resumesList = document.getElementById("resumes-list");
-    resumesList.innerHTML = ""; // Clear previous content
+    typeEffect();
 
-    if (data.resumes && data.resumes.length > 0) {
-      data.resumes.forEach((resume) => {
-        const resumeDiv = document.createElement("div");
-        resumeDiv.className = "resume-item";
-        resumeDiv.innerHTML = ` 
-                       <p>${resume.originalName}</p> 
-                       <a href="${resume.resumeUrl}" target="_blank" class="btn btn-view">View</a>
-        `;
-        resumesList.appendChild(resumeDiv);
-      });
-    } else {
-      resumesList.innerHTML = "<p>No resumes found.</p>";
-    }
-  } catch (error) {
-    console.error("Error fetching resumes:", error);
-    alert("Failed to fetch resumes.");
-  }
-}
-
-// Fetch resumes on page load
-document.addEventListener("DOMContentLoaded", fetchResumes);
+    document.querySelector('.startBtn').addEventListener('click', () => {
+  window.location.href = '/register';
+});

@@ -21,6 +21,23 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
+// ---Logout---
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  try {
+    const response = await fetch("/api/auth/logout", {
+      method: "POST", // or GET depending on your backend
+      credentials: "include", // ⬅ ensures cookies are sent
+    });
+
+    if (response.ok) {
+      window.location.href = "/"; // redirect to homepage after logout
+    } else {
+      console.error("Logout failed:", await response.text());
+    }
+  } catch (error) {
+    console.error("Error during logout:", error);
+  }
+});
 
 // --- Resume Editor ---
 let nutrientInstance = null;

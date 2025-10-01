@@ -5,7 +5,7 @@ body {
   height: 100vh;
   overflow: hidden; /* Remove outer scrollbar */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  background-color: #03111f;
+  background-color: #0e0c1b;
   color: #c9d1d9;
   box-sizing: border-box;
   transition: background-color 0.4s ease, color 0.4s ease; /* ✅ smooth theme switch */
@@ -30,9 +30,9 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
   height: 60px;
+  padding: 0 1.5rem;
   background-color: rgba(22, 27, 34, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(48, 54, 61, 0.5);
@@ -53,7 +53,7 @@ body {
 
 .project-title:hover {
   transform: scale(1.1);
-  color: #0d51a0;
+  color: #1679eb;
 }
 
 .project-title .icon svg {
@@ -66,18 +66,11 @@ body {
 .project-title:hover .icon svg,
 .project-title .icon svg:hover {
   transform: scale(1.1);
-  color: #0d51a0;  
+  color: #1576e4;  
 }
 
 /* --- Theme Toggle Button --- */
 .toggle-theme-btn {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 6px 12px;
-  background-color: #30363d;
-  color: #f0f6fc;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -86,13 +79,13 @@ body {
 
 /* Dark mode button (default) */
 .dark-btn {
-  background-color: #30363d; /* dark background */
-  color: #facc15; /* sun icon yellow */
+  background-color: transparent; /* dark background */
+  color: #f7f5ea; /* sun icon yellow */
 }
 
 /* Light mode button */
 .light-btn {
-  background-color: #f1f5f9; /* light background */
+  background-color: transparent; /* light background */
   color: #0f172a; /* moon icon dark navy */
 }
 
@@ -100,18 +93,27 @@ body {
 .toggle-theme-btn svg {
   width: 18px;
   height: 18px;
-  display: block;
-  fill: #f0f6fc;   /* visible in dark mode */
-  stroke: none;
   transition: fill 0.3s ease, transform 0.3s ease;
 }
 
-body.light-mode .toggle-theme-btn svg {
-  fill: #24292f;   /* visible in light mode */
+.toggle-theme-btn:hover svg {
+  transform: scale(1.2) rotate(15deg);
 }
 
-.toggle-theme-btn:hover svg {
-  transform: scale(1.1) rotate(15deg);
+.btn-logout{
+  padding: 0.5rem 0.1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size:18px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+.btn-logout:hover{
+  color: #ff4d4d;
+  transition: color 0.3s ease;
 }
 
 
@@ -167,7 +169,7 @@ h2 {
 }
 
 #jdForm button {
-  display: inline-block;
+  
   margin-top: 5px;
   padding: 0.5rem 1rem;
   background-color: #27a540;
@@ -252,7 +254,7 @@ input[type="file"]::file-selector-button {
   font-size: 15px;
   font-weight: 600;
   color: #fff;
-  background-color:#0c63c0;
+  background-color: #167ae6;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -262,12 +264,12 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background-color: #033871;
+  background-color: #0267d3;
 }
 
 .btn-save,.btn-view {
   padding: 0.5rem 1rem;
-  background-color: #0c63c0;
+  background-color: #167ae6;
   margin: 0.5rem 0.2rem;
   color: white;
   border: none;
@@ -278,7 +280,7 @@ input[type="file"]::file-selector-button:hover {
 
 .btn-save:hover,
 .btn-view:hover {
-  background-color: #0056b3;
+  background-color: #0267d3;
 }
 
 /* --- Light Mode --- */
