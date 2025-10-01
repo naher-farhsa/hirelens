@@ -4,6 +4,6 @@ const connectDB=require("./src/database/db")
 
 connectDB()
 
-app.listen(3222,()=>{
-    console.log("Server live on port 3222");  
+app.listen(process.env.PORT,()=>{
+    console.log("Server live on port "+process.env.PORT);  
 })
